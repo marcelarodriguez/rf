@@ -89,11 +89,27 @@
 		function fill(x,y,original_color, color)
 		{
 
-			//your recursion codes here
+			//MI CODIGO
 
-			world[y][x] = color;
 
-			// your recursion codes here
+			//mi parametro
+			if(y<0 || y>=world.length || x<0 || x>=world[0].length){
+				return null
+			}
+
+
+			//no es igual al color original
+			if(world[y][x] != original_color){
+				return null
+			}
+
+
+			//revisa los elementos a su alrededor
+			world[y][x] = color;	
+			fill(x,y-1, original_color, color);
+			fill(x,y+1, original_color, color);
+			fill(x-1,y, original_color, color);
+			fill(x+1,y, original_color, color);
 
 			drawWorld();
 			
